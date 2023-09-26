@@ -4,8 +4,16 @@
   "description": "A simple client-server application",
   "private": "true",
   "scripts": {
+    "dev": "nodemon src/server/index.js",
+    "start": "node src/server/index.js",
     "test": "echo \"Write tests!\""
   },
   "author": "Christian Danielsen",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
