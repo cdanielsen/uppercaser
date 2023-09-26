@@ -4,9 +4,10 @@
   "description": "A simple client-server application",
   "private": "true",
   "scripts": {
-    "build": "tsc --watch",
-    "dev": "run-p build dev:server",
-    "dev:server": "nodemon dist/index.js",
+    "build": "tsc",
+    "dev": "run-p dev:build dev:server",
+    "dev:build": "tsc --watch",
+    "dev:server": "nodemon --watch dist dist/server/index.js",
     "lint": "eslint --fix .",
     "format": "prettier --write .",
     "start": "node dist/server/index.js",
