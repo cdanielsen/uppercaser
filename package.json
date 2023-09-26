@@ -1,0 +1,11 @@
+{
+  "name": "overwatch",
+  "version": "1.0.0",
+  "description": "A simple client-server application",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Write tests!\""
+  },
+  "author": "Christian Danielsen",
+  "license": "UNLICENSED"
+}
