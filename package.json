@@ -9,7 +9,7 @@
     "dev:server": "nodemon dist/index.js",
     "lint": "eslint --fix .",
     "format": "prettier --write .",
-    "start": "node src/server/index.js",
+    "start": "node dist/server/index.js",
     "test": "echo \"Write tests!\"",
     "prepare": "husky install"
   },

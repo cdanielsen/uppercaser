@@ -14,6 +14,13 @@ Install dependencies
 npm i
 ```
 
+Build
+
+```sh
+npm run build
+
+```
+
 Start server
 
 ```sh
