@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, InvalidEvent, useState } from "react";
 import { sendMessage, MessageResponse } from "../api";
 
 interface MessageFormProps {
@@ -14,6 +14,14 @@ const MessageForm = ({
   const [isFormValid, setIsFormValid] = useState(false);
   const inputId = "uppercaser-request-field";
 
+  const handleInvalidInput = (e: InvalidEvent<HTMLInputElement>) => {
+    const { patternMismatch, valueMissing } = e.target.validity;
+    if (!valueMissing && patternMismatch) {
+      return e.target.setCustomValidity("Only letters are allowed");
+    }
+    return e.target.setCustomValidity("");
+  };
+
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setIsFormValid(e.target.checkValidity());
     const nextValue = e.target.value;
@@ -23,6 +31,9 @@ const MessageForm = ({
 
   const handleSubmitText = (message: string) => () => {
     (async () => {
+      if (!isFormValid) {
+        return;
+      }
       try {
         const response = await sendMessage(message);
         onSubmit(response);
@@ -34,23 +45,25 @@ const MessageForm = ({
   };
 
   return (
-    <form id="Content__UppercaseForm" name="Uppercasing test submission form">
+    <form
+      id="Content__UppercaseForm"
+      name="Uppercasing test submission form"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <input
         type="text"
         required
         minLength={1}
         maxLength={20}
+        pattern="[a-zA-Z]+"
         id={inputId}
         name={inputId}
         value={inputText}
         aria-label="Text to uppercase"
+        onInvalid={handleInvalidInput}
         onChange={handleInputChange}
       />
-      <button
-        type="button"
-        disabled={!isFormValid}
-        onClick={handleSubmitText(inputText)}
-      >
+      <button type="submit" onClick={handleSubmitText(inputText)}>
         Submit
       </button>
     </form>
