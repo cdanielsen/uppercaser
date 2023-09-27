@@ -1,10 +1,10 @@
-# Overwatch
+# Uppercaser Service
 
-A simple client-server demo app
+A simple web client-server demo app
 
 ## Requirements
 
-An environment with node.js
+An environment with a recent-ish version of [node.js](https://nodejs.org)
 
 ## Usage
 
@@ -29,7 +29,7 @@ npm start
 
 ## Development
 
-Start server in watch mode
+Start server and client in watch mode
 
 ```sh
 npm run dev
