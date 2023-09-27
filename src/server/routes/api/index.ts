@@ -1,12 +1,8 @@
 import { Router } from "express";
-import { uppercaseMessage } from "../../../services/formatString";
+import { handlePostMessage } from "./message";
+import { handleGetTime } from "./time";
 
 export const api = Router();
 
-api.post("/message", (req, res) => {
-  const { message } = req.body;
-  const uppercasedMessage = uppercaseMessage(message);
-  res.json({
-    message: uppercasedMessage,
-  });
-});
+api.post("/message", handlePostMessage);
+api.get("/time", handleGetTime);
