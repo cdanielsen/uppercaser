@@ -49,20 +49,20 @@ function App() {
   };
 
   return (
-    <>
-      <header>
+    <div className="AppContainer">
+      <header className="AppHeader">
         <h1>UpperCaser</h1>
       </header>
-      <main className="Content">
+      <main className="AppContent">
         <MessageForm onSubmitError={handleError} onResponse={handleSubmit} />
         <h3 aria-label="Submission result">
           {hasError ? "An error occurred. Please try again" : responseText}
         </h3>
-        <h3 className="Content__TimeDisplay">
+        <h3 className="AppContent__TimeDisplay">
           Current Time: {generateHumanTime(lastServerSentTime)}
         </h3>
       </main>
-    </>
+    </div>
   );
 }
 

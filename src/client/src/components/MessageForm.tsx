@@ -5,6 +5,8 @@ import {
   ALPHA_ONLY_ERROR_MESSAGE,
 } from "../../../shared/constants";
 
+import "./MessageForm.css";
+
 interface MessageFormProps {
   onSubmitError: (error: unknown) => void;
   onResponse: (response: MessageResponse) => void;
@@ -50,11 +52,12 @@ const MessageForm = ({
 
   return (
     <form
-      id="Content__UppercaseForm"
+      className="UppercaseForm"
       name="Uppercasing test submission form"
       onSubmit={(e) => e.preventDefault()}
     >
       <input
+        className="UppercaseForm__TextInput"
         type="text"
         required
         minLength={1}

@@ -5,6 +5,10 @@
   text-align: center;
 }
 
-.Content__TimeDisplay {
+.AppHeader {
+  font-size: 5rem;
+}
+
+.AppContent__TimeDisplay {
   margin-top: 10rem;
 }

@@ -1,0 +1,9 @@
+.UppercaseForm {
+  display: flex;
+  justify-content: center;
+}
+
+.UppercaseForm__TextInput {
+  width: 50%;
+  margin-left: 1rem;
+}
