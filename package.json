@@ -20,7 +20,8 @@
   "author": "Christian Danielsen",
   "license": "UNLICENSED",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "zod": "^3.22.2"
   },
   "lint-staged": {
     "*.ts": "eslint --cache --fix",

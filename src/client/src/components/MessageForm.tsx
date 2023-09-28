@@ -1,5 +1,9 @@
 import { ChangeEventHandler, InvalidEvent, useState } from "react";
 import { sendMessage, MessageResponse } from "../api";
+import {
+  ALPHA_ONLY,
+  ALPHA_ONLY_ERROR_MESSAGE,
+} from "../../../shared/constants";
 
 interface MessageFormProps {
   onSubmitError: (error: unknown) => void;
@@ -17,7 +21,7 @@ const MessageForm = ({
   const handleInvalidInput = (e: InvalidEvent<HTMLInputElement>) => {
     const { patternMismatch, valueMissing } = e.target.validity;
     if (!valueMissing && patternMismatch) {
-      return e.target.setCustomValidity("Only letters are allowed");
+      return e.target.setCustomValidity(ALPHA_ONLY_ERROR_MESSAGE);
     }
     return e.target.setCustomValidity("");
   };
@@ -55,7 +59,7 @@ const MessageForm = ({
         required
         minLength={1}
         maxLength={20}
-        pattern="[a-zA-Z]+"
+        pattern={ALPHA_ONLY.source}
         id={inputId}
         name={inputId}
         value={inputText}
